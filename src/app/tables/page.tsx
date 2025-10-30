@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
-import Navbar from '../components/Navbar';
-import TableCard from '../components/TableCard';
+import Navbar from '@/components/Navbar';
+import TableCard from '@/components/TableCard';
 
 const TableManagement = () => {
   const [tables, setTables] = useState([]);
