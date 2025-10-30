@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/db';
-import { getServerSession } from 'next-auth';
 
 export async function GET() {
   const orders = await prisma.order.findMany({
@@ -17,10 +16,6 @@ export async function GET() {
 }
 
 export async function POST(request: NextRequest) {
-  const session = await getServerSession();
-  if (!session) {
-    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-  }
   const { tableId, items, totalAmount } = await request.json();
 
   const order = await prisma.order.create({
